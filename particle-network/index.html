@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Data Web</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="./resources/particle.js"></script>
+    <script src="./resources/sketch.js"></script>
+    <style>
+      @font-face {
+        font-family: metaOTLight;
+        src: url(MetaOT-Light.otf);
+      }
+      @font-face {
+        font-family: metaOTBold;
+        src: url(MetaOT-Bold.otf);
+      }
+      html {
+        font-size: 100%;
+      }
+      .container {
+        position: relative;
+        text-align: center;
+        height: auto;
+        color: #3399ff;
+      }
+      .main_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 100;
+      }
+      .p5Canvas {
+        z-index: 0;
+      }
+      p {
+        font-family: metaOTLight;
+        font-size: 1.75vw;
+        font-weight: 100;
+      }
+      strong {
+        font-family: metaOTBold;
+        color: #3399ff;
+      }
+      a {
+        font-weight: 800;
+        font-family: metaOTBold;
+        color: #3399ff;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="main" class="container">
+    <div class="main_text">
+      <p>As a pioneering architecture firm in downtown Boston,
+      <a href="http://arrowstreet.com">Arrowstreet</a> is on a mission to <strong>advance</strong>
+      their industry's approach to <strong>design</strong>. <br>Establishing an in-house
+      Innovation Lab: <strong>Arrowstreet AIR</strong>, the firm is leading their industry
+      using <strong>innovative project practices and design visualization.</strong></p>
+    </div>
+  </div>
+  </body>
+</html>
