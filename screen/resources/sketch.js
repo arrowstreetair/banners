@@ -52,7 +52,7 @@ function draw() {
   //ellipse(xpos, ypos, 20,20);
   for (var i=0;i<200;i+=10){
     noFill();
-    bezier(0,ypos+i,x,y,x,-y,windowWidth,ypos+i)
+    bezier(0,ypos+i,x,y,x,y/2,windowWidth,ypos+i)
     createEllipse(ypos+i);
   }
 
@@ -68,7 +68,7 @@ function windowResized() {
 }
 
 function createEllipse(ypos){
-  ypos = ypos + yspeed * ydirection;
+  //ypos = ypos + yspeed * ydirection;
   if (ypos > height - 20 || ypos < 0) {
     ydirection *= -1;
   }
