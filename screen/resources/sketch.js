@@ -24,35 +24,20 @@ function setup() {
 function draw() {
 
   background(255);
-  calcWave();
-  renderWave();
   noFill();
-  stroke(0);
-  beginShape();
-  curveVertex(0, yvalues[0]);
-  curveVertex(0, yvalues[0]);
-  curveVertex(int(windowWidth/2), yvalues[10]);
-  curveVertex(int(windowWidth), yvalues[20]);
-  curveVertex(int(windowWidth), yvalues[20]);
-  endShape();
-}
-
-function calcWave() {
-  theta += 0.005;
-
-  let x = theta;
-  for (let i=0; i< yvalues.length; i++){
-    yvalues[i] = sin(x) * amplitude;
-    x+= dx;
+  strokeWeight(.1);
+  let x = mouseX;
+  let y = mouseY;
+  if (y>windowWidth/4){
+    y = windowWidth/4;
   }
-}
-
-function renderWave() {
-  noStroke();
-  fill(0);
-  for (let x = 0; x < yvalues.length; x++) {
-    ellipse(x * xspacing, yvalues[x], 2,2);
+  for (var i=0;i<windowWidth/4-60;i+=10){
+    bezier(0,i,x,y,x,y,windowWidth,i);
   }
+  //bezier(0,100,mouseX,mouseY,mouseX,mouseY,windowWidth,200);
+  //bezier(0,110,mouseX,mouseY,mouseX,mouseY,windowWidth,190);
+  //bezier(0,120,mouseX,mouseY,mouseX,mouseY,windowWidth,180);
+
 }
 
 function windowResized() {
