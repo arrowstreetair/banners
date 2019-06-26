@@ -47,7 +47,7 @@ function draw() {
 
       if(distance<200){
         var lineAlpha = map(distance,0,100,70,0);
-        stroke(51,153,255,lineAlpha);
+        stroke(150,150,150,lineAlpha);
         line(systems[i].location.x,systems[i].location.y,systems[j].location.x,systems[j].location.y);
 
       }
