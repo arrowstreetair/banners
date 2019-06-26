@@ -7,7 +7,7 @@ let fontBanner;
 
 function preload() {
   //img = loadImage('./image_background.jpg');
-  fontBanner = loadFont('./MetaOT-Light.otf');
+  //fontBanner = loadFont('./MetaOT-Light.otf');
 }
 
 
