@@ -28,7 +28,7 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(windowWidth,windowWidth/3);
-  canvas.parent("main");
+  //canvas.parent("main");
   w = canvas.width;
   h = canvas.height;
   curve_height = 300;
