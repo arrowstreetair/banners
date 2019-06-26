@@ -89,8 +89,9 @@ function draw() {
     for (var t = 0;t<1;t+=.025){
       let x = bezierPoint(xpos_left,xpos_cp1,xpos_cp2,xpos_right,t);
       let y = bezierPoint(ypos_left+i,ypos_cp1,ypos_cp2,ypos_right+i,t);
-      fill(250);
-      //ellipse(x,y,2,2);
+      fill('#fffff');
+      stroke(200);
+      ellipse(x,y,2,2);
     }
 
   }
