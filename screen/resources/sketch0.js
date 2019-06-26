@@ -7,7 +7,10 @@ let starty = 1;
 let xpos_left, ypos_left, xpos_right, ypos_right;
 let xpos_cp1, ypos_cp1;
 let xpos_cp2, ypos_cp2;
-let yspeed = .25;
+let left_yspeed = .25;
+let right_yspeed = .25;
+let cp1_speed = 2;
+let cp2_speed = 2;
 let left_direction = 1;
 let right_direction;
 let cp1_directions = [-1,1];
@@ -34,13 +37,19 @@ function setup() {
   ypos_left = 0;
   xpos_right = w;
   ypos_right = h-curve_height;
-  xpos_cp1 = random(w/5,w/5*2);
+  xpos_cp1 = random(w/10,w/10*4);
   ypos_cp1 = random(10,h-10);
-  xpos_cp2 = random(w/5*3,w/5*4);
+  xpos_cp2 = random(w/10*6,w/10*9);
   ypos_cp2 = random(10,h-10);
 
   cp1_direction = random(cp1_directions);
   cp2_direction = random(cp1_directions);
+
+
+  left_yspeed = random(0.25,3);
+  right_yspeed = random(0.25,3);
+  cp1_speed = random(1,4);
+  cp2_speed = random(1,4);
 
   canvas.mouseOver(mouseMoved);
 
@@ -54,10 +63,10 @@ function draw() {
   stroke('#3399ff');
   right_direction = left_direction*-1;
 
-  ypos_left = ypos_left + yspeed * left_direction;
-  ypos_right = ypos_right + yspeed * right_direction;
-  ypos_cp1 = ypos_cp1 + yspeed * cp1_direction;
-  ypos_cp2 = ypos_cp2 + yspeed * cp2_direction;
+  ypos_left = ypos_left + left_yspeed * left_direction;
+  ypos_right = ypos_right + right_yspeed * right_direction;
+  ypos_cp1 = ypos_cp1 + cp1_speed * cp1_direction;
+  ypos_cp2 = ypos_cp2 + cp2_speed * cp2_direction;
 
   step = 10;
 
@@ -121,18 +130,8 @@ function windowResized() {
   ypos_right = h-curve_height;
 }
 
-function changeDirection(ypos){
-  //ypos = ypos + yspeed * ydirection;
-  if (ypos > height - 20 || ypos < 0) {
-    ydirection *= -1;
-  }
-
-  fill(0);
-  //ellipse(xpos, ypos, 20,20);
-}
-
 function mouseMoved(){
-  xpos_cp1 = mouseX+500;
+  xpos_cp1 = mouseX+300;
   xpos_cp2 = w - xpos_cp1;
   ypos_cp1 = mouseY;
   //xpos_right = w - mouseX;
