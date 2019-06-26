@@ -10,6 +10,13 @@ let xpos, ypos;
 let yspeed = 1;
 let xdirection = 1;
 let ydirection = 1;
+let direction_choices = [-1,1];
+let cp1direction;
+let cpspeed = -1;
+let cp1x,cp1y,cp2x,cp2y;
+var canvas;
+let x_idx = 0;
+let y_idx = 0;
 
 
 function preload() {
@@ -18,7 +25,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(windowWidth,windowWidth/4);
+  canvas = createCanvas(windowWidth,windowWidth/4);
   period = windowWidth/3*2;
   canvas.parent("main");
   w = windowWidth;
@@ -27,33 +34,72 @@ function setup() {
 
   xpos = 0;
   ypos = 0;
+
+  cp1x = random(100,windowWidth-100);
+  cp1y = random(0,windowWidth/4);
+
+  cp2x = windowWidth - cp1x;
+  cp2y = height - cp1y;
+
+  cp1ydirection = random(direction_choices);
+  cp1xdirection = random(direction_choices);
+
 }
 
 function draw() {
-
+  //setup
   background(255);
   noFill();
   strokeWeight(.1);
   stroke('#3399ff');
-  let x = mouseX;
-  let y = mouseY;
-  if (y>windowWidth/4){
-    y = windowWidth/4;
+
+  //animate edges
+  ypos = ypos + yspeed * ydirection;
+  //animate control point 1
+  //y
+  cp1y = cp1y + random(-2,2);
+  if (y_idx>100){
+    cp1ydirection *= -1;
+    y_idx = 0;
   }
-  for (var i=starty;i<windowWidth/4-100;i+=10){
-    //bezier(0,i,x,y,x,-y,windowWidth,i);
+  //x
+  cp1x = cp1x + random(-2,2);
+  if (x_idx>200){
+    cp1xdirection *= -1;
+    x_idx = 0;
   }
 
-  ypos = ypos + yspeed * ydirection;
-  //if (ypos > height - 20 || ypos < 0) {
-    //ydirection *= -1;
-  //}
-  //fill(0);
-  //ellipse(xpos, ypos, 20,20);
+  cp2x = windowWidth - cp1x;
+  cp2y = height - cp1y;
+
+
+
+  fill(0);
+  ellipse(cp1x,cp1y,10,10);
+  ellipse(cp2x,cp2y,10,10);
+  noFill();
+
+  //animate control point 2
+  //y
+  cp2y = cp2y + random(-2,2);
+  if (y_idx>100){
+    cp1ydirection *= -1;
+    y_idx = 0;
+  }
+  //x
+  cp2x = cp2x + random(-2,2);
+  if (x_idx>200){
+    cp1xdirection *= -1;
+    x_idx = 0;
+  }
+
+  y_idx = y_idx + 1;
+  x_idx = x_idx + 1;
+  //draw curves
   for (var i=0;i<200;i+=10){
     noFill();
-    bezier(0,ypos+i,x,y,x,y/2,windowWidth,ypos+i)
-    createEllipse(ypos+i);
+    bezier(0,ypos+i,cp1x,cp1y,cp2x,cp2y,windowWidth,ypos+i)
+    changeDirection(ypos+i);
   }
 
 
@@ -67,11 +113,18 @@ function windowResized() {
   yvalues = new Array(floor(w/xspacing));
 }
 
-function createEllipse(ypos){
+function changeDirection(ypos){
   //ypos = ypos + yspeed * ydirection;
   if (ypos > height - 20 || ypos < 0) {
     ydirection *= -1;
   }
+
   fill(0);
   //ellipse(xpos, ypos, 20,20);
+}
+
+function dothis() {
+  x = mouseX;
+  y = mouseY;
+  print("test");
 }
