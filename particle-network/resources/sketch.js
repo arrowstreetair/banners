@@ -73,6 +73,9 @@ function draw() {
 function mousePressed(){
   systems.push(new Particle(createVector(mouseX,mouseY)));
 }
+function mouseMoved(){
+  systems.push(new Particle(createVector(mouseX,mouseY)));
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowWidth/4,false);
