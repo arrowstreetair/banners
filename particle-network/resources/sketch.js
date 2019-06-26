@@ -54,6 +54,8 @@ function draw() {
 
     }
     systems[i].update();
+
+
   }
 
 
