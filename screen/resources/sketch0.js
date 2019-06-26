@@ -57,7 +57,7 @@ function draw() {
   ypos_cp1 = ypos_cp1 + yspeed * cp1_direction;
   ypos_cp2 = ypos_cp2 + yspeed * cp2_direction;
 
-  step=10;
+  step = 10;
 
   for (var i=-h; i<h;i+=step){
     //DEFINE LEFT anchor
@@ -73,12 +73,12 @@ function draw() {
     //DEFINE CP1 anchor
     //define CP1 anchor movement
     fill(0);
-    ellipse(xpos_cp1, ypos_cp1,10,10);
+    //ellipse(xpos_cp1, ypos_cp1,10,10);
 
     //DEFINE CP2 anchor
     //define CP2 anchor movement
     fill(0);
-    ellipse(xpos_cp2, ypos_cp2,10,10);
+    //ellipse(xpos_cp2, ypos_cp2,10,10);
 
     noFill()
 
