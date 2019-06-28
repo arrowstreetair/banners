@@ -26,18 +26,22 @@ function setup() {
     systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
   }
 
-  /**if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    total = 20;
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    total = 5;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
-  }**/
+  }
+
+
+  print(/Android|iOS|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
 
 }
 
 function draw() {
 
   background(255);
+  text(/Android|iOS|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent),200,200);
   //tint(255,100);
   //image(img, 0, 0,windowWidth);
 
@@ -92,10 +96,10 @@ function windowResized() {
     systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
   }
 
-  /**if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    total = 20;
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    total = 5;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
-  }**/
+  }
 }
