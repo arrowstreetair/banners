@@ -27,14 +27,11 @@ function setup() {
   }
 
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    total = 5;
+    total = 8;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
   }
-
-
-  print(/Android|iOS|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
 
 }
 
@@ -97,7 +94,7 @@ function windowResized() {
   }
 
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    total = 5;
+    total = 8;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
