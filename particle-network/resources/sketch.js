@@ -41,7 +41,7 @@ function setup() {
 function draw() {
 
   background(255);
-  text(/Android|iOS|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent),200,200);
+  text(/Android|iOS|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent),50,50);
   //tint(255,100);
   //image(img, 0, 0,windowWidth);
 
