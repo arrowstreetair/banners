@@ -4,6 +4,7 @@ var gravity;
 var repeller;
 let img;
 let fontBanner;
+let divisor;
 
 function preload() {
   //img = loadImage('./image_background.jpg');
@@ -16,19 +17,21 @@ function setup() {
   var canvas = createCanvas(windowWidth,windowWidth/4);
   canvas.parent("main");
 
-  total = windowWidth/15;
+  divisor = (10000000/pow(windowWidth,2))+5
+  total = windowWidth/divisor;
+
 
   systems = [];
   for(var i =0;i<total;i++){
     systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
   }
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  /**if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
     total = 20;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
-  }
+  }**/
 
 }
 
@@ -81,17 +84,18 @@ function mouseMoved(){
 
 function windowResized() {
   resizeCanvas(windowWidth, windowWidth/4,false);
-  total = windowWidth/15;
+  divisor = (10000000/pow(windowWidth,2))+5
+  total = windowWidth/divisor;
 
   systems = [];
   for(var i =0;i<total;i++){
     systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
   }
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  /**if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
     total = 20;
     for(var i =0;i<total;i++){
       systems.push(new Particle(createVector(floor(random(width)),floor(random(height)))));
     }
-  }
+  }**/
 }
